@@ -1,6 +1,7 @@
 import { FaBars, FaTimes, FaUsers } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import {
+  Button,
   Navbar,
   NavbarCollapse,
   NavbarLink,
@@ -57,12 +58,31 @@ const Header = () => {
           <NavbarLink as={Link} to="/about">
             About{" "}
           </NavbarLink>
-          <NavbarLink as={Link} to="/login">
+          {/* <NavbarLink as={Link} to="/login">
             Login
           </NavbarLink>
           <NavbarLink as={Link} to="/register">
             Register
-          </NavbarLink>
+          </NavbarLink> */}
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:ml-4">
+            <Button
+              as={Link}
+              to="/login"
+              color="indigo"
+              className="w-full md:w-auto"
+            >
+              Login
+            </Button>
+
+            <Button
+              as={Link}
+              to="/register"
+              color="indigo"
+              className="w-full md:w-auto"
+            >
+              Register
+            </Button>
+          </div>
         </NavbarCollapse>
       </div>
     </Navbar>

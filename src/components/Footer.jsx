@@ -7,9 +7,9 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="flex items-center justify-center text-xs text-gray-700 pt-3">
             &copy; {new Date().getFullYear()} User Management System. All rights
-            reserved.
+            reserved. R@BEE Dangol
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 text-xl text-gray-600">
             <BsFacebook className="hover:text-indigo-600 cursor-pointer transition-colors" />
             <BsInstagram className="hover:text-indigo-600 cursor-pointer transition-colors" />
             <BsTwitch className="hover:text-indigo-600 cursor-pointer transition-colors" />
