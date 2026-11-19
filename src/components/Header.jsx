@@ -44,20 +44,31 @@ const Header = () => {
           text-lg pl-2 pb-2 
           ${isMenuOpen ? "block" : "hidden"}`}
         >
-          <NavbarLink
-            as={Link}
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "text-indigo-600 font-semibold "
-                : " text-gray-700 hover:text-indigo-600 dark:text-gray-200 dark:hover:text-red-600"
-            }
-          >
-            Home
-          </NavbarLink>
-          <NavbarLink as={Link} to="/about">
-            About{" "}
-          </NavbarLink>
+          <div className="flex flex-col gap-3 text-sm font-bold md:flex-row md:items-center md:ml-4">
+            <NavbarLink
+              as={Link}
+              to="/"
+              onClick={() => toggleNavbar()}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-600 font-semibold "
+                  : " text-gray-700 hover:text-indigo-600 dark:text-gray-200 dark:hover:text-red-600"
+              }
+            >
+              Home
+            </NavbarLink>
+            <NavbarLink
+              as={Link}
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-600 font-semibold "
+                  : " text-gray-700 hover:text-indigo-600 dark:text-gray-200 dark:hover:text-red-600"
+              }
+            >
+              About
+            </NavbarLink>
+          </div>
           {/* <NavbarLink as={Link} to="/login">
             Login
           </NavbarLink>
@@ -69,6 +80,7 @@ const Header = () => {
               as={Link}
               to="/login"
               color="indigo"
+              onClick={() => toggleNavbar()}
               className="w-full md:w-auto"
             >
               Login
@@ -78,6 +90,7 @@ const Header = () => {
               as={Link}
               to="/register"
               color="indigo"
+              onClick={() => toggleNavbar()}
               className="w-full md:w-auto"
             >
               Register
