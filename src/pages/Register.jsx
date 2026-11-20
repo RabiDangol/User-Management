@@ -1,9 +1,16 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     e.preventDefault;
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
@@ -11,6 +18,9 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.username || !formData.email || !formData.password) {
+      dispatch("Please fill out all fields!!");
+    }
   };
 
   return (
