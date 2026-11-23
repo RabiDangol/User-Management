@@ -1,5 +1,5 @@
 import Router from "./Routes/Router.jsx";
-import Navbar from "./Sharedcomponent/Navbar";
+import DashboardNavbar from "./Sharedcomponent/DashboardNavbar.jsx";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
 </main>
 <Footer /> */}
       <Router />
-      <Navbar />
+      <DashboardNavbar />
     </>
   );
 }
