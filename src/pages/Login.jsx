@@ -1,14 +1,15 @@
-import { Button, Label, TextInput } from "flowbite-react";
+import { Alert, Button, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signInFailure } from "../redux/user/userSlice";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
   });
+  const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -22,7 +23,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      dispatch("Please fill out all fields!!");
+      return dispatch(signInFailure("Please fill out all fields!!"));
     }
   };
 
@@ -64,7 +65,14 @@ const Login = () => {
               ></TextInput>
             </div>
             <div>
-              <Button type="submit">Register</Button>
+              {errorMessage && (
+                <Alert className="mt-5" color="failure">
+                  {errorMessage}
+                </Alert>
+              )}
+              <Button type="submit" disabled={loading}>
+                {loading ? "Logging in..." : "Login"}
+              </Button>
             </div>
           </form>
           <div className="flex gap-2 text-sm mt-5">

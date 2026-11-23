@@ -19,7 +19,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
-      dispatch("Please fill out all fields!!");
+      return dispatch("Please fill out all fields!!");
     }
   };
 

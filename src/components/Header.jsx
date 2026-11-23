@@ -65,6 +65,7 @@ const Header = () => {
                   ? "text-indigo-600 font-semibold "
                   : " text-gray-700 hover:text-indigo-600 dark:text-gray-200 dark:hover:text-red-600"
               }
+              onClick={() => toggleNavbar()}
             >
               About
             </NavbarLink>
