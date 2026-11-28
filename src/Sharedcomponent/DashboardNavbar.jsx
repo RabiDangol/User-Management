@@ -5,7 +5,6 @@ import {
   DropdownItem,
   Navbar,
   NavbarCollapse,
-  NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
 import { FaChevronDown, FaUsers } from "react-icons/fa";
@@ -22,7 +21,7 @@ const DashboardNavbar = () => {
         className="relative bg-gray-100 shadow-sm border-b border-slate-200"
       >
         <div className="w-full mx-auto px-3 py-3 flex items-center justify-around">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/dashboard" className="flex items-center space-x-2">
             <div className="bg-indigo-600 text-white p-2 rounded-lg">
               <FaUsers className="text-xl" />
             </div>
@@ -32,24 +31,32 @@ const DashboardNavbar = () => {
           </Link>
           <NavbarToggle />
           <NavbarCollapse>
-            <NavbarLink as={Link} to="/dashboard">
+            {/* <NavbarLink as={Link} to="/dashboard">
               Dashboard
             </NavbarLink>
             <NavbarLink as={Link} to="/dashboard/users">
               All Users
             </NavbarLink>
+            <NavbarLink as={Link} to="/dashboard/add-users">
+              Add User
+            </NavbarLink> */}
             {/* profile dropdown */}
             <li>
               <Dropdown
                 arrowIcon={false}
                 inline
                 label={
-                  <div className="flex justify-evenly w-4">
-                    <Avatar rounded size="sm" />
+                  <div className="flex items-center gap-2">
+                    <Avatar
+                      img={currentUser?.profilePicture}
+                      rounded
+                      size="sm"
+                      className="border-solid border-indigo-600"
+                    />
                     <span className="ml-2 text-sm font-medium text-gray-700">
                       {currentUser?.username || "User"}
                     </span>
-                    <FaChevronDown className="" />
+                    <FaChevronDown color="red" />
                   </div>
                 }
               >
@@ -62,7 +69,9 @@ const DashboardNavbar = () => {
                     {currentUser?.email}
                   </span>
                 </DropdownHeader>
-                <DropdownItem>My Profile</DropdownItem>
+                <DropdownItem as={Link} to="/dashboard/profile">
+                  My Profile
+                </DropdownItem>
                 <DropdownItem>Log-Out</DropdownItem>
               </Dropdown>
             </li>
